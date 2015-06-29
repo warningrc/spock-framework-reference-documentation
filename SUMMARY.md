@@ -8,4 +8,7 @@
     * [导入(Imports)](Imports.md)
     * [Specification](Specification.md)
     * [字段(Fields)](Fields.md)
+    * [Fixture Methods](FixtureMethods.md)
+    * [Feature Methods](FeatureMethods.md)
+    * [代码块(Blocks)](Blocks.md)
 
