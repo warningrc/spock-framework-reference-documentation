@@ -11,5 +11,5 @@
     * [Fixture Methods](FixtureMethods.md)
     * [Feature Methods](FeatureMethods.md)
     * [代码块(Blocks)](Blocks.md)
-        * [Setup Blocks](Blocks.md#setup-blocks)
+        * [Setup Blocks](./Blocks.html#setup-blocks)
 
