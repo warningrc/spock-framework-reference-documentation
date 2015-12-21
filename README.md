@@ -5,5 +5,6 @@
 
 
 ----
+>本文阅读地址:[`http://spock.warningrc.com/`](http://spock.warningrc.com/)
 >联系我:
 [`admin@warningrc.com`](mailto:admin@warningrc.com) [`http://blog.warningrc.com/`](http://blog.warningrc.com/ "http://blog.warningrc.com/")
