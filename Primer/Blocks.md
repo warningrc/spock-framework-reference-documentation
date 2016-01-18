@@ -32,11 +32,15 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 ####When and Then Blocks
 	when:   // stimulus
 	then:   // response
-The `when` and `then` blocks always occur together. They describe a stimulus and the expected response. Whereas `when` blocks may contain arbitrary code, `then` blocks are restricted to conditions, exception conditions, interactions, and variable definitions. A feature method may contain multiple pairs of `when-then` blocks.
 
-#####Conditions
+`when` 和 `then`代码块总是一起出现。它们描述了一个`刺激源`(`stimulus`)和预期的效果(当`...`时候，则会出现`...`的效果)。`when`块可以包含任意的代码，`then`块则由`限制条件`/`异常判断`/`交互代码`/`变量定义`组成。一个`feature method`可以包含多个 `when-then` 代码块。
+>The `when` and `then` blocks always occur together. They describe a stimulus and the expected response. Whereas `when` blocks may contain arbitrary code, `then` blocks are restricted to conditions, exception conditions, interactions, and variable definitions. A feature method may contain multiple pairs of `when-then` blocks.
 
-Conditions describe an expected state, much like JUnit’s assertions. However, conditions are written as plain boolean expressions, eliminating the need for an assertion API. (More precisely, a condition may also produce a non-boolean value, which will then be evaluated according to Groovy truth.) Let’s see some conditions in action:
+##### 条件(Conditions)
+
+条件(`Conditions`)描述了一个预期的状态，类似于`junit`的断言。不过，条件(`Conditions`)可以只写一个布尔表达式，不需要断言的`api`(确切的说，一个条件通常返回一个非布尔值的数据，然后会使用`Groovy truth`推断出结果)。接下来我们看一些例子：
+
+>Conditions describe an expected state, much like JUnit’s assertions. However, conditions are written as plain boolean expressions, eliminating the need for an assertion API. (More precisely, a condition may also produce a non-boolean value, which will then be evaluated according to Groovy truth.) Let’s see some conditions in action:
 
 	when:
 	stack.push(elem)
@@ -46,7 +50,9 @@ Conditions describe an expected state, much like JUnit’s assertions. However, 
 	stack.size() == 1
 	stack.peek() == elem
 
-> Try to keep the number of conditions per feature method small. One to five conditions is a good guideline. If you have more than that, ask yourself if you are specifying multiple unrelated features at once. If the answer is yes, break up the feature method in several smaller ones. If your conditions only differ in their values, consider using a [data table](#data-tables).
+> 尽量保证`feature method`中拥有最少量的条件。一到五个为最佳。如果有多个条件，检查一下是不是描述了多个不相关的功能，如果答案是肯定的，则可以将`feature method`拆分的更细一点。如果你的条件(`Conditions`)有多个不同的值，可以考虑使用[data table](#data-tables)
+
+>> Try to keep the number of conditions per feature method small. One to five conditions is a good guideline. If you have more than that, ask yourself if you are specifying multiple unrelated features at once. If the answer is yes, break up the feature method in several smaller ones. If your conditions only differ in their values, consider using a [data table](#data-tables).
 
 What kind of feedback does Spock provide if a condition is violated? Let’s try and change the second condition to `stack.size() == 2`. Here is what we get:
 
