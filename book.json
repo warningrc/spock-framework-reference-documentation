@@ -1,8 +1,16 @@
 {
-    "language" : "zh-hans",
-    "links" : {
-        "sidebar" : {
-            "Warning RC" : "http://blog.warningrc.com/"
+    "language": "zh-hans",
+    "links": {
+        "sidebar": {
+            "Warning RC": "http://blog.warningrc.com/"
+        }
+    },
+    "plugins": [
+        "disqus"
+    ],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "spock-framework-reference-documentation"
         }
     }
 }
