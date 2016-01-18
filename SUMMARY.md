@@ -26,4 +26,8 @@
     * [Data Pipes](DDT/DataPipes.md)
     * [Multi-Variable Data Pipes](DDT/MultiVariableDataPipes.md)
     * [Data Variable Assignment](DDT/DataVariableAssignment.md)
+    * [Combining Data Tables, Data Pipes, and Variable Assignments](DDT/CombiningDT-DP-VA.md)
+    * [Number of Iterations](DDT/NumberOfIterations.md)
+    * [Closing of Data Providers](DDT/ClosingOfDataProviders.md)
+    * [More on Unrolled Method Names](DDT/MoreOnUnrolledMethodNames.md)
 
