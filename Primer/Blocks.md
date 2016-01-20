@@ -50,11 +50,15 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 	stack.size() == 1
 	stack.peek() == elem
 
-> 尽量保证`feature method`中拥有最少量的条件。一到五个为最佳。如果有多个条件，检查一下是不是描述了多个不相关的功能，如果答案是肯定的，则可以将`feature method`拆分的更细一点。如果你的条件(`Conditions`)有多个不同的值，可以考虑使用[data table](#data-tables)
+> 尽量保证`feature method`中拥有最少量的条件。一到五个为最佳。如果有多个条件，检查一下是不是描述了多个不相关的功能，如果答案是肯定的，则可以将`feature method`拆分的更细一点。如果你的条件(`Conditions`)有多个不同的值，可以考虑使用[data table](../DDT/DataTables.md)
 
->> Try to keep the number of conditions per feature method small. One to five conditions is a good guideline. If you have more than that, ask yourself if you are specifying multiple unrelated features at once. If the answer is yes, break up the feature method in several smaller ones. If your conditions only differ in their values, consider using a [data table](#data-tables).
+>> Try to keep the number of conditions per feature method small. One to five conditions is a good guideline. If you have more than that, ask yourself if you are specifying multiple unrelated features at once. If the answer is yes, break up the feature method in several smaller ones. If your conditions only differ in their values, consider using a [data table](../DDT/DataTables.md).
 
-What kind of feedback does Spock provide if a condition is violated? Let’s try and change the second condition to `stack.size() == 2`. Here is what we get:
+如果条件不成立`spock`将会有什么样的反馈呢？我们将条件修改为`stack.size() == 2`.执行单元测试后，将会得到如下提示：
+
+>What kind of feedback does Spock provide if a condition is violated? Let’s try and change the second condition to `stack.size() == 2`. Here is what we get:
+
+
 
 	Condition not satisfied:
 	
@@ -63,23 +67,29 @@ What kind of feedback does Spock provide if a condition is violated? Let’s try
 	|     1      false
 	[push me]
 
+如你所看的，`spock`以一个很容易理解的形式展现了条件执行过程中产生的所有中间数据。
 
-As you can see, Spock captures all values produced during the evaluation of a condition, and presents them in an easily digestible form. Nice, isn’t it?
+>As you can see, Spock captures all values produced during the evaluation of a condition, and presents them in an easily digestible form. Nice, isn’t it?
 
-#####Implicit and explicit conditions
+##### 显式和隐式条件(Implicit and explicit conditions)
 
-Conditions are an essential ingredient of `then` blocks and `expect` blocks. Except for calls to `void` methods and expressions classified as interactions, all top-level expressions in these blocks are implicitly treated as conditions. To use conditions in other places, you need to designate them with Groovy’s assert keyword:
+条件是`then`和`expect`块最基本的组成部分。除了没有返回值的方法和表达式被认作是一种交互以外，这些块中的其他顶级表达式都被隐式的认定为条件。如果在其他地方使用条件，需要使用Groovy中的断言关键字`assert`:
+
+>Conditions are an essential ingredient of `then` blocks and `expect` blocks. Except for calls to `void` methods and expressions classified as interactions, all top-level expressions in these blocks are implicitly treated as conditions. To use conditions in other places, you need to designate them with Groovy’s assert keyword:
 
 	def setup() {
 	  stack = new Stack()
 	  assert stack.empty
 	}
 
-If an explicit condition is violated, it will produce the same nice diagnostic message as an implicit condition.
+如果一个显式的条件不成立，将展现出同隐式条件一样的提示信息。
+>If an explicit condition is violated, it will produce the same nice diagnostic message as an implicit condition.
 
-#####Exception Conditions
+##### 异常判断(Exception Conditions)
 
-Exception conditions are used to describe that a `when` block should throw an exception. They are defined using the `thrown()` method, passing along the expected exception type. For example, to describe that popping from an empty stack should throw an `EmptyStackException`, you could write the following:
+异常判断描述`when`代码库必须抛出一个指定的异常。使用`thrown()`方法捕获异常，并判断异常的类型。例如，描述从一个空的堆栈中`pop`数据需要抛出一个`EmptyStackException`异常，你需要这么写：
+
+>Exception conditions are used to describe that a `when` block should throw an exception. They are defined using the `thrown()` method, passing along the expected exception type. For example, to describe that popping from an empty stack should throw an `EmptyStackException`, you could write the following:
 
 	when:
 	stack.pop()
@@ -87,10 +97,11 @@ Exception conditions are used to describe that a `when` block should throw an ex
 	then:
 	thrown(EmptyStackException)
 	stack.empty
-As you can see, exception conditions may be followed by other conditions (and even other blocks). This is particularly useful for specifying the expected content of an exception. To access the exception, first bind it to a variable:
 
+正如你看到的那样，异常判断后面还可以跟着其他条件判断(或者其他代码块)。这对于预言一个异常的内容特别有用。要访问异常信息，需要绑定到一个变量上：
 
-As you can see, exception conditions may be followed by other conditions (and even other blocks). This is particularly useful for specifying the expected content of an exception. To access the exception, first bind it to a variable:
+>As you can see, exception conditions may be followed by other conditions (and even other blocks). This is particularly useful for specifying the expected content of an exception. To access the exception, first bind it to a variable:
+
 
 	when:
 	stack.pop()
@@ -98,7 +109,9 @@ As you can see, exception conditions may be followed by other conditions (and ev
 	then:
 	def e = thrown(EmptyStackException)
 	e.cause == null
-Alternatively, you may use a slight variation of the above syntax:
+
+当然你也可以对上面的语法做一些变动：
+>Alternatively, you may use a slight variation of the above syntax:
 
 	when:
 	stack.pop()
@@ -107,11 +120,13 @@ Alternatively, you may use a slight variation of the above syntax:
 	EmptyStackException e = thrown()
 	e.cause == null
 
+这种语法有两个小优点：第一，此异常是强类型的，可以有效的利用IDE提供的语法推断。第二，这种条件读起来有点像一个句子(然后将会抛出一个`EmptyStackException`异常)。注意，如果没有为`thrown()`方法传递异常的类型，它将从左侧的变量类型进行推断。
 
+>This syntax has two small advantages: First, the exception variable is strongly typed, making it easier for IDEs to offer code completion. Second, the condition reads a bit more like a sentence ("then an EmptyStackException is thrown"). Note that if no exception type is passed to the `thrown()` method, it is inferred from the variable type on the left-hand side.
 
-This syntax has two small advantages: First, the exception variable is strongly typed, making it easier for IDEs to offer code completion. Second, the condition reads a bit more like a sentence ("then an EmptyStackException is thrown"). Note that if no exception type is passed to the `thrown()` method, it is inferred from the variable type on the left-hand side.
+有时候，我们需要描述出不能抛出异常的状态。例如，我们尝试着预言`HashMap`应该能接收一个`null`的key：
 
-Sometimes we need to convey that an exception should **not** be thrown. For example, let’s try to express that a HashMap should accept a `null` key:
+>Sometimes we need to convey that an exception should **not** be thrown. For example, let’s try to express that a HashMap should accept a `null` key:
 
 	def "HashMap accepts null key"() {
 	  setup:
