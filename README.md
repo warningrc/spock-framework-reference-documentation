@@ -5,7 +5,7 @@
 
 
 ----
->本文阅读地址:[`http://spock.warningrc.com/`](http://spock.warningrc.com/)
+>本文阅读地址:[`https://book.warningrc.com/spock`](https://book.warningrc.com/spock/)
 >
 >联系我:
 [`admin@warningrc.com`](mailto:admin@warningrc.com) [`http://blog.warningrc.com/`](http://blog.warningrc.com/ "http://blog.warningrc.com/")

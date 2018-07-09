@@ -6,11 +6,24 @@
         }
     },
     "plugins": [
-        "disqus"
+        "disqus",
+        "splitter",
+        "image-captions",
+        "github",
+        "book-summary-scroll-position-saver",
+        "prism",
+        "sectionx",
+        "alerts"
     ],
     "pluginsConfig": {
+        "theme-default": {
+             "showLevel": true
+        },
         "disqus": {
             "shortName": "spock-framework-reference-documentation"
+        },
+        "github": {
+            "url":"https://github.com/warningrc/spock-framework-reference-documentation"
         }
     }
 }
