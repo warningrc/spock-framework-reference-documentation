@@ -1,6 +1,6 @@
 # Summary
 
-* [关于](README.md)
+* [Spock参考文档](README.md)
 * [介绍(Introduction)](introduction.md)
 * [开始使用Spock(Getting Started)](GettingStarted.md)
 * [Spock入门(Spock Primer)](Primer/README.md)
@@ -30,4 +30,13 @@
     * [Number of Iterations](DDT/NumberOfIterations.md)
     * [Closing of Data Providers](DDT/ClosingOfDataProviders.md)
     * [More on Unrolled Method Names](DDT/MoreOnUnrolledMethodNames.md)
-
+* [Interaction Based Testing](IBT/README.md)
+    * [Creating Mock Objects](IBT/CreatingMockObjects.md)
+    * [Default Behavior of Mock Objects](IBT/DefaultBehavior-of-MockObjects.md)
+    * [Injecting Mock Objects into Code Under Specification](IBT/InjectingMockObjectsintoCodeUnderSpecification.md)
+    * [Mocking](IBT/Mocking.md)
+        * [Interactions](IBT/Interactions.md)
+        * [Cardinality](IBT/Cardinality.md)
+        * [Target Constraint](IBT/TargetConstraint.md)
+        * [Method Constraint](IBT/MethodConstraint.md)
+    * [Stubbing](IBT/Stubbing.md)
