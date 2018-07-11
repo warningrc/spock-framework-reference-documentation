@@ -10,4 +10,4 @@
 >本文阅读地址:[`https://book.warningrc.com/spock`](https://book.warningrc.com/spock/)
 >
 >联系我:
-[`王宁`](mailto:499490717@qq.com) [`http://blog.warningrc.com/`](http://blog.warningrc.com/ "http://blog.warningrc.com/")
+[`王宁`](mailto:499490717@qq.com) [`http://blog.warningrc.com/`](https://www.warningrc.com/ "https://www.warningrc.com/")
