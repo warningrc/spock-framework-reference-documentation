@@ -2,4 +2,4 @@
 
 gitbook build
 
-scp -r ./_book//* aliyun:/data/webroot/gitbook/spock/
+rsync -artvz --delete ./_book/ aliyun:/data/webroot/gitbook/spock/
