@@ -13,7 +13,8 @@
         "book-summary-scroll-position-saver",
         "prism",
         "sectionx",
-        "alerts"
+        "alerts",
+        "ga"
     ],
     "pluginsConfig": {
         "theme-default": {
@@ -24,6 +25,9 @@
         },
         "github": {
             "url":"https://github.com/warningrc/spock-framework-reference-documentation"
+        },
+        "ga": {
+            "token": "UA-122225193-3"
         }
     }
 }
