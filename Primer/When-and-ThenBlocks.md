@@ -3,7 +3,7 @@
 	when:   // stimulus
 	then:   // response
 
-`when` 和 `then`代码块总是一起出现。它们描述了一个`刺激源`(`stimulus`)和预期的效果(当`...`时候，则会出现`...`的效果)。`when`块可以包含任意的代码，`then`块则由`限制条件`/`异常判断`/`交互代码`/`变量定义`组成。一个`feature method`可以包含多个 `when-then` 代码块。
+`when` 和 `then`代码块总是一起出现。它们描述了一个`刺激源`(`stimulus`)和预期的效果(当`...`时候，则会出现`...`的效果)。`when`块可以包含任意的代码，`then`块则由`条件`/`异常判断`/`交互代码`/`变量定义`组成。一个`feature method`可以包含多个 `when-then` 代码块。
 >The `when` and `then` blocks always occur together. They describe a stimulus and the expected response. Whereas `when` blocks may contain arbitrary code, `then` blocks are restricted to conditions, exception conditions, interactions, and variable definitions. A feature method may contain multiple pairs of `when-then` blocks.
 
 #### 条件(Conditions)
