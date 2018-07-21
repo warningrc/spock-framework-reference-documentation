@@ -1,17 +1,13 @@
-<style>
-h1,h2,h3,h4{font-family: "Open Sans","DejaVu Sans",sans-serif;font-weight: 300;font-style: normal; color: #ba3925;text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: .5em;}
-h1{color: rgba(0,0,0,.85);}
-blockquote{color: #998;font-style: italic;}
-</style>
+
 
 ## Reporting of Failures
 
 Let’s assume that our implementation of the `max` method has a flaw, and one of the iterations fails:
-    
+
     maximum of two numbers   FAILED
-    
+
     Condition not satisfied:
-    
+
     Math.max(a, b) == c
         |    |  |  |  |
         |    7  0  |  7

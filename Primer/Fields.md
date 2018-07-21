@@ -1,8 +1,4 @@
-<style>
-h1,h2,h3,h4{font-family: "Open Sans","DejaVu Sans",sans-serif;font-weight: 300;font-style: normal; color: #ba3925;text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: .5em;}
-h1{color: rgba(0,0,0,.85);}
-blockquote{color: #998;font-style: italic;}
-</style>
+
 ##字段(Fields)
 	def obj = new ClassUnderSpecification()
 	def coll = new Collaborator()
@@ -18,4 +14,3 @@ blockquote{color: #998;font-style: italic;}
 
 静态字段仅仅用于定义常量.共享字段是最优的选择,因为他们被明确的定义为共享的.
 >Static fields should only be used for constants. Otherwise shared fields are preferable, because their semantics with respect to sharing are more well-defined.
-

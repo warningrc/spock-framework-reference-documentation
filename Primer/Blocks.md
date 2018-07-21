@@ -1,10 +1,5 @@
- <style>
-h1,h2,h3,h4{font-family: "Open Sans","DejaVu Sans",sans-serif;font-weight: 300;font-style: normal; color: #ba3925;text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: .5em;}
-h1{color: rgba(0,0,0,.85);}
-blockquote{color: #998;font-style: italic;}
-</style>
 
-###代码块(Blocks)
+### 代码块(Blocks)
 Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支持。为此,`feature method`被结构化为一个一个的代码块。代码块以一个标签开始，一直延伸到下一个代码块或者到`feature method`的结束。Spock内置了六个代码块:`setup`, `when`, `then`, `expect`, `cleanup`, 和 `where`。从方法的开始到第一个显式的代码块中间的代码都是隐式的`setup`代码块。
 
 >Spock has built-in support for implementing each of the conceptual phases of a feature method. To this end, feature methods are structured into so-called blocks. Blocks start with a label, and extend to the beginning of the next block, or the end of the method. There are six kinds of blocks: `setup`, `when`, `then`, `expect`, `cleanup`, and `where` blocks. Any statements between the beginning of the method and the first explicit block belong to an implicit `setup` block.
@@ -19,7 +14,7 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 ![](images/Blocks2Phases.png)
 
 
-####Setup Blocks
+#### Setup Blocks
 	setup:
 	def stack = new Stack()
 	def elem = "push me"
@@ -44,7 +39,7 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 
 	when:
 	stack.push(elem)
-	
+
 	then:
 	!stack.empty
 	stack.size() == 1
@@ -61,7 +56,7 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 
 
 	Condition not satisfied:
-	
+
 	stack.size() == 2
 	|     |      |
 	|     1      false
@@ -93,7 +88,7 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 
 	when:
 	stack.pop()
-	
+
 	then:
 	thrown(EmptyStackException)
 	stack.empty
@@ -105,7 +100,7 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 
 	when:
 	stack.pop()
-	
+
 	then:
 	def e = thrown(EmptyStackException)
 	e.cause == null
@@ -115,7 +110,7 @@ Spock对`feature method`的各个概念阶段(conceptual phases)有内置的支�
 
 	when:
 	stack.pop()
-	
+
 	then:
 	EmptyStackException e = thrown()
 	e.cause == null
@@ -138,10 +133,10 @@ This works but doesn’t reveal the intention of the code. Did someone just leav
 	def "HashMap accepts null key"() {
 	  setup:
 	  def map = new HashMap()
-	
+
 	  when:
 	  map.put(null, "elem")
-	
+
 	  then:
 	  notThrown(NullPointerException)
 	}
@@ -158,10 +153,10 @@ Whereas conditions describe an object’s state, interactions describe how objec
 	  def publisher = new Publisher()
 	  publisher.add(subscriber1)
 	  publisher.add(subscriber2)
-	
+
 	  when:
 	  publisher.fire("event")
-	
+
 	  then:
 	  1 * subscriber1.receive("event")
 	  1 * subscriber2.receive("event")
@@ -174,7 +169,7 @@ An `expect` block is more limited than a `then` block in that it may only contai
 
 	when:
 	def x = Math.max(1, 2)
-	
+
 	then:
 	x == 2
 	expect:
@@ -186,13 +181,13 @@ Although both snippets are semantically equivalent, the second one is clearly pr
 
 
 ####Cleanup Blocks
-	
+
 	setup:
 	def file = new File("/some/path")
 	file.createNewFile()
-	
+
 	// ...
-	
+
 	cleanup:
 	file.delete()
 
@@ -210,7 +205,7 @@ A `where` block always comes last in a method, and may not be repeated. It is us
 	def "computing the maximum of two numbers"() {
 	  expect:
 	  Math.max(a, b) == c
-	
+
 	  where:
 	  a << [5, 3]
 	  b << [1, 9]
@@ -220,4 +215,3 @@ A `where` block always comes last in a method, and may not be repeated. It is us
 This `where` block effectively creates two "versions" of the feature method: One where `a` is `5`, `b` is `1`, and `c` is `5`, and another one where `a` is `3`, `b` is `9`, and `c` is `9`.
 
 The `where` block will be further explained in the [Data Driven Testing](#data-driven-testing) chapter.
-

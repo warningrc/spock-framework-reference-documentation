@@ -1,8 +1,3 @@
-<style>
-h1,h2,h3,h4{font-family: "Open Sans","DejaVu Sans",sans-serif;font-weight: 300;font-style: normal; color: #ba3925;text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: .5em;}
-h1{color: rgba(0,0,0,.85);}
-blockquote{color: #998;font-style: italic;}
-</style>
 
 ## Introduction
 
@@ -32,7 +27,7 @@ Spock’s data-driven testing support tries to address these concerns. To get st
         def "maximum of two numbers"(int a, int b, int c) {
             expect:
             Math.max(a, b) == c
-    
+
             ...
         }
     }

@@ -1,8 +1,4 @@
-<style>
-h1,h2,h3,h4{font-family: "Open Sans","DejaVu Sans",sans-serif;font-weight: 300;font-style: normal; color: #ba3925;text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: .5em;}
-h1{color: rgba(0,0,0,.85);}
-blockquote{color: #998;font-style: italic;}
-</style>
+
 ##Extensions
 As we have seen, Spock offers lots of functionality for writing specifications. However, there always comes a time when something else is needed. Therefore, Spock provides an interception-based extension mechanism. Extensions are activated by annotations called directives. Currently, Spock ships with the following directives:
 

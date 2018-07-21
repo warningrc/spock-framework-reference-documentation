@@ -1,8 +1,3 @@
-<style>
-h1,h2,h3,h4{font-family: "Open Sans","DejaVu Sans",sans-serif;font-weight: 300;font-style: normal; color: #ba3925;text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: .5em;}
-h1{color: rgba(0,0,0,.85);}
-blockquote{color: #998;font-style: italic;}
-</style>
 
 ## More on Unrolled Method Names
 
@@ -21,7 +16,7 @@ Non-string values (like `#person` above) are converted to Strings according to G
 
 The following are invalid method names:
 
-    
+
     def "#person.name.split(' ')[1]" { ... } // cannot have method arguments
     def "#person.age / 2" { ... } // cannot use operators
 

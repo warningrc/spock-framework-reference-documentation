@@ -5,6 +5,9 @@
             "Warning RC": "https://www.warningrc.com/"
         }
     },
+    "styles": {
+        "website": "css/website.css"
+    },
     "plugins": [
         "disqus",
         "splitter",
