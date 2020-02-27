@@ -17,7 +17,8 @@
         "prism",
         "sectionx",
         "alerts",
-        "ga"
+        "ga",
+        "donate"
     ],
     "pluginsConfig": {
         "theme-default": {
@@ -31,6 +32,14 @@
         },
         "ga": {
             "token": "UA-122225193-3"
+        },
+        "donate": {
+            "wechat": "https://kooup-static.koocdn.com/images/2020/02/27/ccdaf2af-8754-46b7-88f2-021c8f37f683.jpeg",
+            "alipay": "https://kooup-static.koocdn.com/images/2020/02/27/aecdd02e-1edd-460d-a7bc-0988575b2a06.jpeg",
+            "title": "",
+            "button": "赏",
+            "alipayText": "支付宝打赏",
+            "wechatText": "微信打赏"
         }
     }
 }
